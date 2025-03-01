@@ -2,35 +2,46 @@
 #include <queue>
 using namespace std;
 
+void print(queue<int> q){
+    while(!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }
+    cout << endl;
+}
+
 int main() {
   queue<int> q;
 
-  for(int i = 10; i <= 100; i+=10){
-      q.push(i);
+  int i = 10;
+  while (i <= 100) {
+    q.push(i);
+    i += 10;
   }
 
-  cout << "Queue Size : " << q.size() << endl;
+  cout << "Before pop : " << endl;
+  print(q);
 
-  // cout << "Printing Queue : " << endl;
-  // while(!q.empty()){
-  //     cout << q.front() << " ";
-  //     q.pop();
-  // } cout << endl;
+  // pop element from other end
+  // q.pop();
+  // q.pop();
 
 
-  // // Removal of 10
+  // Removing Element
   q.pop();
   q.pop();
 
-  cout << "Queue size after removal : " << q.size() << endl;
+  cout << "After pop : " << endl;
+  print(q);
+
+  cout << q.front() << endl;
+  cout << q.back() << endl;
 
   if(q.empty()){
       cout << "Queue is Empty " << endl;
   }else{
-      cout << "Queue is not empty " << endl;
+      cout << "Queue is not Empty " << endl;
   }
 
-  cout << "Front element is : " << q.front() << endl;
-  cout << "Back element is : " <<  q.back() << endl;
   return 0;
 }
