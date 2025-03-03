@@ -2,6 +2,7 @@
 #include <queue>
 using namespace std;
 
+// print queue
 void print(queue<int> q){
     while(!q.empty()){
         cout << q.front() << " ";
@@ -34,8 +35,8 @@ int main() {
   cout << "After pop : " << endl;
   print(q);
 
-  cout << q.front() << endl;
-  cout << q.back() << endl;
+  cout  << "front Element : " << q.front() << endl;
+  cout << "Back Element : "<< q.back() << endl;
 
   if(q.empty()){
       cout << "Queue is Empty " << endl;
@@ -43,5 +44,6 @@ int main() {
       cout << "Queue is not Empty " << endl;
   }
 
+  cout << "Queue Size After pop : " << q.size() << endl;
   return 0;
 }
