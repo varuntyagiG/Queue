@@ -2,7 +2,7 @@
 #include <deque>
 using namespace std;
 
-void  print(deque<int> dq){
+void print(deque<int> dq){
     while(!dq.empty()){
         cout << dq.front() << " ";
         dq.pop_front();
@@ -13,21 +13,25 @@ void  print(deque<int> dq){
 int main(){
     deque<int> dq;
 
-    dq.push_front(10);
-    dq.push_front(20);
-    dq.push_front(30);
-    dq.push_back(40);
-    dq.push_back(50);
-    dq.push_back(60);
+    int i = 5;
+    while(i <= 50){
+        dq.push_back(i);
+        i += 5;
+    }
 
     print(dq);
 
-    cout << dq.front() << endl;
-    cout << dq.back() << endl;
-    cout << dq.size() << endl;
-    cout << dq.empty() << endl;
+    cout << "Before pop " << endl;
+    cout << "Front Element : " << dq.front() << endl;
+    cout << "Back Element : " << dq.back() << endl;
+    cout << "Deque Size : " << dq.size() << endl;
 
 
+    if(dq.empty()){
+        cout << "Deque is empty" << endl;
+    }else{
+        cout << "Deque is'nt empty" << endl;
+    }
 
     return 0;
 }
