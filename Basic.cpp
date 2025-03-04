@@ -14,36 +14,36 @@ void print(queue<int> q){
 int main() {
   queue<int> q;
 
-  int i = 10;
-  while (i <= 100) {
-    q.push(i);
-    i += 10;
+  int i = 1;
+  while (i <= 5) {
+      q.push(i);
+      i += 1;
   }
 
-  cout << "Before pop : " << endl;
+  cout << "Before Pop : " << endl;
   print(q);
+  cout << "Front Element : " << q.front() << endl;
+  cout << "Back Element : " << q.back() << endl;
+  cout << "Size of Queue : " << q.size() << endl;
 
-  // pop element from other end
-  // q.pop();
-  // q.pop();
-
-
-  // Removing Element
   q.pop();
   q.pop();
+  cout << endl;
 
-  cout << "After pop : " << endl;
+
+  cout << "After Pop : " << endl;
   print(q);
+  cout << "Front Element : " << q.front() << endl;
+  cout << "Back Element : " << q.back() << endl;
 
-  cout  << "front Element : " << q.front() << endl;
-  cout << "Back Element : "<< q.back() << endl;
 
+  cout << "Size of Queue : " << q.size() << endl;
   if(q.empty()){
       cout << "Queue is Empty " << endl;
   }else{
-      cout << "Queue is not Empty " << endl;
+      cout << "Queue is'nt Empty" << endl;
   }
 
-  cout << "Queue Size After pop : " << q.size() << endl;
+
   return 0;
 }
