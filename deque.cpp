@@ -3,9 +3,8 @@
 using namespace std;
 
 void print(deque<int> dq){
-    while(!dq.empty()){
-        cout << dq.front() << " ";
-        dq.pop_front();
+    for(int i = 0; i < dq.size(); ++i){
+        cout << dq[i] << " ";
     }
     cout << endl;
 }
