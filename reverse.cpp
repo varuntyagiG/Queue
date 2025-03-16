@@ -2,16 +2,15 @@
 #include <iostream>
 #include <queue>
 #include <stack>
-#include <utility>
 using namespace std;
 
-void print(queue<int> q){
-    while(!q.empty()){
-        cout << q.front() << " ";
-        q.pop();
-    }
-    cout << endl;
-}
+// void print(queue<int> q){
+//     while(!q.empty()){
+//         cout << q.front() << " ";
+//         q.pop();
+//     }
+//     cout << endl;
+// }
 
 void reverse(queue<int>& q){
     if(q.empty()){
@@ -40,25 +39,32 @@ void reverse2(queue<int> &q){
 }
 
 void reverse3(deque<int> &dq){
-    // int i = 0;
-    // int j = dq.size() - 1;
-    // while(i < j){
-    //     swap(dq[i++],dq[j--]);
+    int i = 0;
+    int j = dq.size() - 1;
+    while(i < j){
+        swap(dq[i++],dq[j--]);
+    }
+
+
+    // stack<int> st;
+    // for(int i = 0; i < dq.size(); ++i){
+    //     st.push(dq[i]);
     // }
 
+    // dq.clear();
 
-    stack<int> st;
+
+    // while(!st.empty()){
+    //     dq.push_back(st.top());
+    //     st.pop();
+    // }
+}
+
+void print(deque<int> dq){
     for(int i = 0; i < dq.size(); ++i){
-        st.push(dq[i]);
+        cout << dq[i] << " ";
     }
-
-    dq.clear();
-
-
-    while(!st.empty()){
-        dq.push_back(st.top());
-        st.pop();
-    }
+    cout << endl;
 }
 
 int main(){
@@ -84,16 +90,12 @@ int main(){
         dq.push_back(i);
     }
 
-    for(int i = 0; i < dq.size(); ++i){
-        cout << dq[i] << " ";
-    }
-    cout << endl;
+    cout << "Before Reverse : " << endl;
+    print(dq);
 
     reverse3(dq);
 
-    for(int i = 0; i < dq.size(); ++i){
-        cout << dq[i] << " ";
-    }
-    cout << endl;
+    cout << "After Reverse : " << endl;
+    print(dq);
     return 0;
 }
