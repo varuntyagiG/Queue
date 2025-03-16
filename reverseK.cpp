@@ -6,6 +6,11 @@ using namespace std;
 
 
 void reverse(queue<int> &q,int k){
+    if(k < 0 or k > q.size()){
+        cout << "Invalid Value of K can't Reverse : " << endl;
+        return;
+    }
+
     stack<int> st;
 
     for(int i = 1; i <= k; ++i){
@@ -27,6 +32,8 @@ void reverse(queue<int> &q,int k){
     for(int i = 0; i < arr.size(); ++i){
         q.push(arr[i]);
     }
+
+    arr.clear();
 }
 
 void print(queue<int> q){
@@ -40,10 +47,9 @@ void print(queue<int> q){
 int main(){
     queue<int> q;
     int i = 5;
-    int k = 4;
-    while(i <= 50){
+    int k = -3;
+    for(int i = 5; i <= 50; i+=5){
         q.push(i);
-        i += 5;
     }
 
     print(q);
