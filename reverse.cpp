@@ -2,15 +2,16 @@
 #include <iostream>
 #include <queue>
 #include <stack>
+#include <vector>
 using namespace std;
 
-// void print(queue<int> q){
-//     while(!q.empty()){
-//         cout << q.front() << " ";
-//         q.pop();
-//     }
-//     cout << endl;
-// }
+void print(queue<int> q){
+    while(!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }
+    cout << endl;
+}
 
 void reverse(queue<int>& q){
     if(q.empty()){
@@ -26,15 +27,20 @@ void reverse(queue<int>& q){
 }
 
 void reverse2(queue<int> &q){
-    stack<int> st;
+    vector<int> arr;
     while(!q.empty()){
-        st.push(q.front());
+        arr.push_back(q.front());
         q.pop();
     }
 
-    while(!st.empty()){
-        q.push(st.top());
-        st.pop();
+    int i = 0;
+    int j = arr.size() - 1;
+    while(i < j){
+        swap(arr[i++],arr[j--]);
+    }
+
+    for(int z = 0; z < arr.size(); ++z){
+        q.push(arr[z]);
     }
 }
 
@@ -60,42 +66,42 @@ void reverse3(deque<int> &dq){
     // }
 }
 
-void print(deque<int> dq){
-    for(int i = 0; i < dq.size(); ++i){
-        cout << dq[i] << " ";
-    }
-    cout << endl;
-}
+// void print(deque<int> dq){
+//     for(int i = 0; i < dq.size(); ++i){
+//         cout << dq[i] << " ";
+//     }
+//     cout << endl;
+// }
 
 int main(){
-    // queue<int> q;
+    queue<int> q;
 
-    // int i = 10;
-    // while(i <= 50){
-    //     q.push(i);
-    //     i += 10;
-    // }
-
-    // cout << "Before Reverse : " ;
-    // print(q);
-
-    // reverse2(q);
-
-    // cout << "After Reverse : " ;
-    // print(q);
-
-
-    deque<int> dq;
-    for(int i = 10; i <= 50; i+=10){
-        dq.push_back(i);
+    int i = 10;
+    while(i <= 50){
+        q.push(i);
+        i += 10;
     }
 
-    cout << "Before Reverse : " << endl;
-    print(dq);
+    cout << "Before Reverse : " ;
+    print(q);
 
-    reverse3(dq);
+    reverse2(q);
 
-    cout << "After Reverse : " << endl;
-    print(dq);
+    cout << "After Reverse : " ;
+    print(q);
+
+
+    // deque<int> dq;
+    // for(int i = 10; i <= 50; i+=10){
+    //     dq.push_back(i);
+    // }
+
+    // cout << "Before Reverse : " << endl;
+    // print(dq);
+
+    // reverse3(dq);
+
+    // cout << "After Reverse : " << endl;
+    // print(dq);
     return 0;
 }
