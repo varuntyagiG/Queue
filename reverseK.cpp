@@ -11,10 +11,17 @@ void reverse(queue<int> &q,int k){
         return;
     }
 
-    stack<int> st;
+    // stack<int> st;
 
+    // for(int i = 1; i <= k; ++i){
+    //     st.push(q.front());
+    //     q.pop();
+    // }
+
+    // Use Vector in the place of Stack
+    vector<int> sk;
     for(int i = 1; i <= k; ++i){
-        st.push(q.front());
+        sk.push_back(q.front());
         q.pop();
     }
 
@@ -24,9 +31,10 @@ void reverse(queue<int> &q,int k){
         q.pop();
     }
 
-    while(!st.empty()){
-        q.push(st.top());
-        st.pop();
+    // reverse the array
+    reverse(sk.begin(),sk.end());
+    for(int i = 0; i < sk.size(); ++i){
+        q.push(sk[i]);
     }
 
     for(int i = 0; i < arr.size(); ++i){
@@ -34,6 +42,7 @@ void reverse(queue<int> &q,int k){
     }
 
     arr.clear();
+    sk.clear();
 }
 
 void print(queue<int> q){
@@ -46,16 +55,18 @@ void print(queue<int> q){
 
 int main(){
     queue<int> q;
-    int i = 5;
-    int k = -3;
+    int k = 9;
     for(int i = 5; i <= 50; i+=5){
         q.push(i);
     }
 
+    cout << "Before Reverse : ";
     print(q);
 
     reverse(q,k);
 
+
+    cout << "After Reverse first k elements: ";
     print(q);
     return 0;
 }
